@@ -3,7 +3,9 @@ import { useState } from 'react';
 import './App.css';
 
 
-
+export const replaceCamelWithSpaces = (str) => {
+  return str.replace(/\B([A-Z])\B/g,' $1')
+}
  
 
 function App() {

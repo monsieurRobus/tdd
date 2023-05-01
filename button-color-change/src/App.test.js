@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 // import { logRoles } from '@testing-library/dom';
-import App from './App';
+import App, { replaceCamelWithSpaces} from './App';
 
 
 
@@ -109,3 +109,21 @@ test('Click button, disable and has gray background, then re-enable, and it goes
   expect(button).toHaveStyle({ backgroundColor: 'blue' })  // Styles in react are like this!
 
 })
+
+
+
+describe('spaces before camel-case capital letters', () => {
+  
+  test('Works for no inner capital letters', () => {
+    expect(replaceCamelWithSpaces('Red')).toBe('Red')
+  })
+
+  test('Works for one inner capital letter', () => {
+    expect(replaceCamelWithSpaces('MidnightBlue')).toBe('Midnight Blue')
+  })
+
+  test('Works for multiple inner capital letters', () => {
+    expect(replaceCamelWithSpaces('MediumVioletRed')).toBe('Medium Violet Red')
+  })
+
+})  
